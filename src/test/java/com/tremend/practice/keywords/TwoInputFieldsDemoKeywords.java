@@ -24,8 +24,8 @@ public class TwoInputFieldsDemoKeywords {
 
     @When("the user submits two numeric values in the input fields")
     public void theUserSubmitsTwoNumericValuesInTheInputFields() {
-        twoInputFieldsDemoSteps.user_sets_first_numeric_value("12");
-        twoInputFieldsDemoSteps.user_sets_second_numeric_value("1");
+        twoInputFieldsDemoSteps.user_sets_first_numeric_field(Integer.parseInt("12"));
+        twoInputFieldsDemoSteps.user_sets_second_numeric_field(Integer.parseInt("1"));
         twoInputFieldsDemoSteps.user_clicks_show_total_button();
     }
 

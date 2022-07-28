@@ -8,10 +8,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class TwoInputFieldsDemoPage extends PageObject {
     @FindBy(id = "sum1")
-    private WebElementFacade firstNumber;
+    private WebElementFacade firstNumericField;
 
     @FindBy(id = "sum2")
-    private WebElementFacade secondNumber;
+    private WebElementFacade secondNumericField;
 
     @FindBy(css = "#gettotal > button")
     private WebElementFacade showTotalButton;
@@ -23,15 +23,20 @@ public class TwoInputFieldsDemoPage extends PageObject {
         getDriver().navigate().to("https://demo.seleniumeasy.com/basic-first-form-demo.html");
     }
 
-    public void setFirstNumber(String value) {firstNumber.sendKeys(value);}
+    public void setFirstNumericField(int a){
+        firstNumericField.sendKeys(String.valueOf(a));
+    }
 
-    public void setSecondNumber(String value) {secondNumber.sendKeys(value);}
+    public void setSecondNumericField(int b){
+        secondNumericField.sendKeys(String.valueOf(b));
+    }
 
     public void clickShowTotalButton(){
         showTotalButton.click();
     }
 
-    public String getDisplayTotalValue(){return displayTotalValue.getText();}
-
+    public String getDisplayTotalValue(){
+        return displayTotalValue.getText();
     }
+}
 
