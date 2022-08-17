@@ -16,7 +16,7 @@ public class TwoInputsSimpleFormDemoSteps {
     }
 
     @Step
-    public void set_sum_input_field(String value){
+    public void set_sum_input_field(String value, String value2){
         twoInputsSimpleFormDemoPage.setSumInputField(value);
     }
 
