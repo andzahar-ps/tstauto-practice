@@ -24,9 +24,9 @@ public class TwoInputsSimpleFormDemoPage extends PageObject {
     }
 
 
-    public void setSumInputField(String value){
-        sum1InputField.sendKeys( value);
-        sum2InputField.sendKeys( value);
+    public void setSumInputField(String value1, String value2){
+        sum1InputField.sendKeys( value1);
+        sum2InputField.sendKeys( value2);
     }
 
 
