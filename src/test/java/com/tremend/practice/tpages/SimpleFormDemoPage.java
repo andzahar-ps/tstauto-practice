@@ -15,6 +15,29 @@ public class SimpleFormDemoPage extends PageObject {
     @FindBy(id = "display")
     private WebElementFacade displayLabel;
 
+    ///Two Input
+
+    @FindBy(id = "sum1")
+    private WebElementFacade firstNumericField;
+
+    @FindBy(id = "sum2")
+    private WebElementFacade secondNumericField;
+
+    @FindBy(css = "#gettotal > button")
+    private WebElementFacade showTotalButton;
+
+    @FindBy(id = "displayvalue")
+    private WebElementFacade displayTotalValue;
+
+
+    @FindBy(ngModel = "sda")
+    private WebElementFacade cevaCeva;
+
+    public void cevaRapid(){
+        cevaCeva.isSelected();
+
+    }
+
 
     public void navigateToSimpleDemoPage(){
         getDriver().navigate().to("https://demo.seleniumeasy.com/basic-first-form-demo.html");
@@ -33,6 +56,22 @@ public class SimpleFormDemoPage extends PageObject {
         return displayLabel.getText();
     }
 
+
+    public void setFirstNumericField(String aValue){
+        firstNumericField.sendKeys(aValue);
+    }
+
+    public void setSecondNumericField(String bValue){
+        secondNumericField.sendKeys(bValue);
+    }
+
+    public void clickShowTotalButton(){
+        showTotalButton.click();
+    }
+
+    public String getDisplayTotalValue(){
+        return displayTotalValue.getText();
+    }
 
 
 
