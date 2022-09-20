@@ -5,7 +5,7 @@ Feature: Checkbox
   Scenario: As as user I want to be able to select the checkbox
     Given that the user is on Simple checkbox page
     When the user clicks on the checkbox
-    Then the message "Success - check box is selected" is displayed
+    Then the message "Success - check box is checked" is displayed
 
 
   @multipleCheckbox

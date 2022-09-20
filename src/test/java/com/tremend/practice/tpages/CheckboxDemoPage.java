@@ -4,6 +4,8 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class CheckboxDemoPage extends PageObject {
 
     @FindBy(id = "isAgeSelected")
@@ -26,6 +28,9 @@ public class CheckboxDemoPage extends PageObject {
     @FindBy(className= "cb1-element[4]")
     private WebElementFacade forthCheckbox;
 
+    @FindBy(className = "cb1-element")
+    private List<WebElementFacade> checkBoxList;
+
     @FindBy(id = "check1")
     private WebElementFacade allButton;
 
@@ -37,23 +42,31 @@ public class CheckboxDemoPage extends PageObject {
         checkbox.click();
     }
 
-    public String getSuccessMessage() {
+    public String getTextSuccessMessage() {
         return successMessage.getText();
     }
 
-    public void clickOnTheFirstCheckbox() {
-        checkbox.click();
+    public void clickOnCheckbox(int order){
+        checkBoxList.get(order).click();
     }
-    public void clickOnTheSecondCheckbox() {
-        checkbox.click();
+
+    public boolean isSelectedCheckbox(int order){
+        return checkBoxList.get(order).isSelected();
     }
-    public void clickOnTheThirdCheckbox() {
-        checkbox.click();
-    }
-    public void clickOnTheFourthCheckbox() {
-        checkbox.click();
-    }
-    public void clickUncheckAllButton() {
-        checkbox.click();
-    }
+
+//    public void clickOnTheFirstCheckbox() {
+//        checkbox.click();
+//    }
+//    public void clickOnTheSecondCheckbox() {
+//        checkbox.click();
+//    }
+//    public void clickOnTheThirdCheckbox() {
+//        checkbox.click();
+//    }
+//    public void clickOnTheFourthCheckbox() {
+//        checkbox.click();
+//    }
+    public void clickAllCheckboxesButton() {
+    allButton.click();
+     }
 }

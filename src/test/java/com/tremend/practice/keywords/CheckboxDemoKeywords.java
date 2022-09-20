@@ -34,7 +34,7 @@ public class CheckboxDemoKeywords {
 
     @When("the user clicks the uncheck all button")
     public void clickOnTheFirstCheckbox() {
-        checkboxDemoSteps.the_user_clicks_on_the_first_checkbox();
+        checkboxDemoSteps.the_user_clicks_on_all_checkboxes_button();
     }
 
         // ================ THEN Keywords
@@ -44,7 +44,13 @@ public class CheckboxDemoKeywords {
           checkboxDemoSteps.assert_success_message_is_displayed(message);
         }
 
-        // @Then("all the checkboxes are unselected")
-        //public void
+    @Then("all the checkboxes are unselected")
+    public void allTheCheckboxesAreUnselected() {
+        checkboxDemoSteps.assert_checkbox_selection_state_is(true,0);
+        checkboxDemoSteps.assert_checkbox_selection_state_is(true,1);
+        checkboxDemoSteps.assert_checkbox_selection_state_is(true,2);
+        checkboxDemoSteps.assert_checkbox_selection_state_is(true,3);
+    }
+
 
 }
