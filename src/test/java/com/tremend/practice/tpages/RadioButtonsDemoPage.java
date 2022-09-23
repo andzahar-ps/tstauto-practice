@@ -4,42 +4,80 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.support.FindBy;
 
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
+import java.util.List;
 
 public class RadioButtonsDemoPage extends PageObject {
-    //Radio Button Demo
-    @FindBy(css = "input[value='Male'][name='optradio']")
-    private WebElementFacade maleGenderRadiobutton;
 
-    @FindBy(css = "input[value='Female'][name='optradio']")
-    private WebElementFacade femaleGenderRadiobutton;
+    //Single Radio Button Demo
+    @FindBy(name = "optradio")
+    private List<WebElementFacade> radioButtons;
 
     @FindBy(id = "buttoncheck")
-    private WebElementFacade getValueButton;
+    private WebElementFacade getCheckedValueButton;
 
     @FindBy(className = "radiobutton")
     private WebElementFacade genderMessage;
+
+    //Group Radio Buttons Demo
+
+    @FindBy(name = "gender")
+    private List<WebElementFacade> genderRadioButtons;
+
+    @FindBy(name = "ageGroup")
+    private List<WebElementFacade> ageRadioButtons;
+
+    @FindBy(css = "button[onclick='getValues();']")
+    private WebElementFacade getValuesButton;
+
+    @FindBy(css = ".groupradiobutton")
+    private WebElementFacade valueRadioButtonsMessage;
 
     public void navigateToRadioButtonsPage() {
         getDriver().navigate().to("https://demo.seleniumeasy.com/basic-radiobutton-demo.html");
     }
 
-    public void clickMaleRadiobutton() {
-        maleGenderRadiobutton.click();
+    public void clickMaleRadioButton() {
+        radioButtons.get(0).click();
     }
 
-    public void clickFemaleRadiobutton() {
-        femaleGenderRadiobutton.click();
+    public void clickFemaleRadioButton() {
+        radioButtons.get(1).click();
     }
 
-    public void clickGetCheckedValue(){ getValueButton.click();}
+    public void clickGetCheckedValue() {
+        getCheckedValueButton.click();
+    }
 
-    public String getTextSuccessMessage() {
+    public String getCheckedGender() {
         return genderMessage.getText();
+
     }
 
-//    public boolean isSelectedRadioButton(){
-//        return genderRadiobutton.isSelected();
-//    }
+    public void tapMaleRadioButton() {
+        genderRadioButtons.get(0).click();
+    }
 
+    public void tapFemaleRadioButton() {
+        genderRadioButtons.get(1).click();
+    }
+
+    public void tapFirstAgeGroupRadioButton() {
+        ageRadioButtons.get(0).click();
+    }
+
+    public void tapSecondAgeGroupRadioButton() {
+        ageRadioButtons.get(1).click();
+    }
+
+    public void tapThirdAgeGroupRadioButton() {
+        ageRadioButtons.get(2).click();
+    }
+
+    public void tapGetValuesButton() {
+        getValuesButton.click();
+    }
+
+    public String getGenderAgeValue() {
+        return valueRadioButtonsMessage.getText();
+    }
 }
