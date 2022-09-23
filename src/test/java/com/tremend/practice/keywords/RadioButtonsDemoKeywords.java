@@ -14,28 +14,31 @@ public class RadioButtonsDemoKeywords {
 
     // ========== GIVEN Keywords
 
-    @Given("that the user navigates to radio buttons page")
-    public void that_the_user_navigates_to_radio_buttons_page() {
+    @Given("that the user is on the Radio Buttons page")
+    public void thatTheUserIsOnTheRadioButtonsPage() {
         radioButtonsDemoSteps.navigate_to_radio_buttons_page();
     }
 
     // ========== WHEN Keywords
 
     @When("the user clicks on {string} radio button")
-    public void the_user_clicks_on_a_radio_button(){
+    public void theUserClicksOnRadioButton(String gender) {
+        radioButtonsDemoSteps.user_clicks_on_gender_button(gender);
+    }
+
+
+    // ========== AND Keywords
+    @And("the user clicks on Get checked value button")
+    public void theUserClicksOnGetCheckedValueButton() {
         radioButtonsDemoSteps.user_clicks_on_get_checked_value_button();
     }
 
-    // ========== And Keywords
-    @And("the user clicks on 'Get checked value' button")
-    public void the_user_clicks_on_get_checked_value_button() {
-        radioButtonsDemoSteps.user_clicks_on_get_checked_value_button();
-    }
 
     // ========== THEN Keywords
 
-    @Then("the user gets a proper success message containing the checked {string} value")
-    public void the_user_gets_success_message_containing_the_checked_value(String message) {
-        radioButtonsDemoSteps.assert_message_is_displayed(message);
+    @Then("the user gets a message with the selected {string} value")
+    public void theUserGetsAMessageWithTheSelectedValue(String gender) {
+        radioButtonsDemoSteps.assert_message_is_displayed(gender);
     }
+
 }

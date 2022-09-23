@@ -2,6 +2,7 @@ package com.tremend.practice.steps;
 
 import com.tremend.practice.tpages.RadioButtonsDemoPage;
 import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,10 +15,19 @@ public class RadioButtonsDemoSteps {
         radioButtonsDemoPage.navigateToRadioButtonsPage();
     }
 
-//    @Step
-//    public void user_clicks_on_a_radio_button() {
-//        radioButtonsDemoPage.clickGenderRadiobutton();
-//    }
+    @Step
+    public void user_clicks_on_gender_button(String value) {
+        switch (value) {
+            case "Male":
+                radioButtonsDemoPage.clickMaleRadioButton();
+                break;
+            case "Female":
+                radioButtonsDemoPage.clickFemaleRadioButton();
+                break;
+            default:
+                Assert.fail(value + "is not defined in the test framework");
+        }
+    }
 
     @Step
     public void user_clicks_on_get_checked_value_button() {
@@ -25,19 +35,9 @@ public class RadioButtonsDemoSteps {
     }
 
     @Step
-    public void the_user_clicks_on_gender_button(String value) {
-        switch (value) {
-            case "male":
-                radioButtonsDemoPage.clickMaleRadiobutton();
-                break;
-            case "female":
-                radioButtonsDemoPage.clickFemaleRadiobutton();
-                break;
-        }
+    public void assert_message_is_displayed(String gender) {
+        assertThat(radioButtonsDemoPage.getCheckedGender()).as("Display message is:").isEqualTo("Radio button" + gender + "is checked");
     }
 
-    @Step
-    public void assert_message_is_displayed(String gender) {
-        assertThat(radioButtonsDemoPage.getTextSuccessMessage()).as("Display message is:").isEqualTo("Radio button" + gender + "is checked");
-    }
+
 }
