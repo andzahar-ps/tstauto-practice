@@ -15,7 +15,7 @@ public class RadioButtonsDemoSteps {
     }
 
     @Step
-    public void the_user_clicks_on_gender_button(String value){
+    public void the_user_clicks_on_gender_button(String value) {
         switch (value) {
             case "Male":
                 radioButtonsDemoPage.clickOnMaleRadioButton();
@@ -34,8 +34,8 @@ public class RadioButtonsDemoSteps {
     }
 
     @Step
-    public void assert_message_is_displayed(String gender){
-        assertThat(radioButtonsDemoPage.getDisplayGenderMessage() ).as("Display message is : ").isEqualTo("Radio button" + gender + "is checked");
+    public void assert_message_is_displayed(String gender) {
+        assertThat(radioButtonsDemoPage.getDisplayGenderMessage()).as("Display message is : ").isEqualTo("Radio button '" + gender + "' is checked");
 
     }
 }
