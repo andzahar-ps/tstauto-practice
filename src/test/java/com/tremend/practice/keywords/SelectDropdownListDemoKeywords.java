@@ -23,8 +23,13 @@ public class SelectDropdownListDemoKeywords {
     // ========== WHEN Keywords
 
 
-    @When("the user clicks on a day of the week")
-    public void theUserClicksOnADayOfTheWeek(String weekday) {
+    @When("the user opens the dropdown list")
+    public void theUserOpensTheDropdownList() {
+        selectDropdownListSteps.user_opens_dropdown_list();
+    }
+
+    @And("the user clicks on {string}")
+    public void theUserClicksOn(String weekday) {
         selectDropdownListSteps.the_user_clicks_on_dropdown_list(weekday);
     }
 

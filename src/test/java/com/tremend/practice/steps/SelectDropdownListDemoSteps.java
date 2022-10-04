@@ -14,6 +14,10 @@ public class SelectDropdownListDemoSteps {
         public void navigate_to_dropdown_list_page() {
             selectDropdownListDemoPage.navigateToDropdownListPage();
         }
+    @Step
+    public void user_opens_dropdown_list() {
+        selectDropdownListDemoPage.openDropdownList();
+    }
 
         @Step
         public void the_user_clicks_on_dropdown_list(String value) {
@@ -23,6 +27,21 @@ public class SelectDropdownListDemoSteps {
                     break;
                 case "Monday":
                     selectDropdownListDemoPage.selectDropdownListOption(2);
+                    break;
+                case "Tuesday":
+                    selectDropdownListDemoPage.selectDropdownListOption(3);
+                    break;
+                case "Wednesday":
+                    selectDropdownListDemoPage.selectDropdownListOption(4);
+                    break;
+                case "Thursday":
+                    selectDropdownListDemoPage.selectDropdownListOption(5);
+                    break;
+                case "Friday":
+                    selectDropdownListDemoPage.selectDropdownListOption(6);
+                    break;
+                case "Saturday":
+                    selectDropdownListDemoPage.selectDropdownListOption(7);
                     break;
                 default:
                     Assert.fail(value + "is not defined in the test framework");
