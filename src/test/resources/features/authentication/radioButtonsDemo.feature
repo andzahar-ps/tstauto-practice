@@ -20,8 +20,8 @@ Feature: Radio Buttons Demo
 
     Examples:
       | sex  | ageGroup |
-      | Male | 0 - 5    |
-#      | Male   | 5 - 15  |
+#      | Male | 0 - 5    |
+      | Male   | 5 - 15  |
 #      | Male   | 15 - 50 |
 #      | Female | 0 - 5   |
 #      | Female | 5 - 15  |

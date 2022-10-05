@@ -13,8 +13,7 @@ public class RadioButtonsDemoKeywords {
 
     @Steps
     private RadioButtonsDemoSteps radioButtonsDemoSteps;
-//    @Steps
-//    private SubscribeModalSteps subscribeModalSteps;
+
 
 
     // ========================= RADIO BUTTON DEMO
@@ -54,12 +53,12 @@ public class RadioButtonsDemoKeywords {
 
     // ========================= GROUP RADIO BUTTONS DEMO
 
+
     // ================ GIVEN Keywords
 
     @Given("the user is on the Radio Buttons Demo page at the Group Radio Buttons section")
     public void theUserIsOnTheRadioButtonsDemoPageAtTheGroupRadioButtonsSection() {
         radioButtonsDemoSteps.navigate_to_radiobuttons_demo();
-
     }
 
 
@@ -75,6 +74,7 @@ public class RadioButtonsDemoKeywords {
     @And("the user clicks on the Get values button")
     public void theUserClicksOnTheGetValuesButton() {
         radioButtonsDemoSteps.the_user_clicks_get_values_button();
+
     }
 
 
@@ -85,5 +85,4 @@ public class RadioButtonsDemoKeywords {
     public void theAndTheAreCorrectlyDisplayedInTheTextMessage(String sex, String ageGroup) {
         radioButtonsDemoSteps.assert_both_values_are_correctly_shown(sex, ageGroup);
     }
-
 }

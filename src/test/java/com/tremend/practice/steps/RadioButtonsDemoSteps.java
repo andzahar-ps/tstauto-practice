@@ -47,6 +47,7 @@ public class RadioButtonsDemoSteps {
 
     // ===== Group Radio Buttons Demo steps
 
+
     @Step
     public void the_user_clicks_the_sex_radio_button(String sex, String ageGroup) {
         if (sex.equals("Male") && ageGroup.equals("0 - 5")) {
@@ -89,11 +90,9 @@ public class RadioButtonsDemoSteps {
         radioButtonsDemoPage.clickGetValuesButton();
     }
 
+
     @Step
     public void assert_both_values_are_correctly_shown(String sex, String ageGroup) {
-        assertThat(radioButtonsDemoPage.getSexAndAgeGroupText()).isEqualTo("Sex : " + sex + "\nAge Group: " + ageGroup);
+        assertThat(radioButtonsDemoPage.getSexAndAgeGroupText()).isEqualTo("Sex : " + sex + "\n" + "Age group: " + ageGroup);
     }
-
-
-
 }
