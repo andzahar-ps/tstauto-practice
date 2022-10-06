@@ -8,18 +8,18 @@ Feature: Radio Buttons page
 
     Examples:
       | gender |
-      | Male   |
-#      | Female |
+#      | Male   |
+      | Female |
 
-#  Scenario Outline: As a user I want to be displayed the selected gender and age after clicking the radio buttons
-#    Given that the user is on the Radio Buttons page
-#    When the user clicks on "<sex>" radio button and "<age>" radio button
-#    And the user clicks on Get values button
-#    Then the gender "<sex>" and age group "<age>" are displayed
-#
-#    Examples:
-#      | sex  | age   |
-#      | Male | 0 - 5 |
+  Scenario Outline: As a user I want to be displayed the selected gender and age after clicking the radio buttons
+    Given that the user is on the Radio Buttons page
+    When the user clicks on "<sex>" radio button and "<ageGroup>" radio button
+    And the user clicks on Get values button
+    Then the gender "<sex>" and age Group "<ageGroup>" are displayed
+
+    Examples:
+      | sex  | ageGroup |
+      | Male | 0 - 5    |
 ##      | Male   | 5 - 15  |
 ##      | Male   | 15 - 50 |
 ##      | Female | 0 - 5   |

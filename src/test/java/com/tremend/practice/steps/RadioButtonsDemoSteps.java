@@ -16,16 +16,16 @@ public class RadioButtonsDemoSteps {
     }
 
     @Step
-    public void user_clicks_on_gender_button(String value) {
-        switch (value) {
+    public void user_clicks_on_gender_button(String gender) {
+        switch (gender) {
             case "Male":
-                radioButtonsDemoPage.clickMaleRadioButton();
+                radioButtonsDemoPage.selectSexRadioButton(0);
                 break;
             case "Female":
-                radioButtonsDemoPage.clickFemaleRadioButton();
+                radioButtonsDemoPage.selectSexRadioButton(1);
                 break;
             default:
-                Assert.fail(value + "is not defined in the test framework");
+                Assert.fail(gender + "is not defined in the test framework");
         }
     }
 
@@ -36,7 +36,41 @@ public class RadioButtonsDemoSteps {
 
     @Step
     public void assert_message_is_displayed(String gender) {
-        assertThat(radioButtonsDemoPage.getCheckedGender()).as("Display message is:").isEqualTo("Radio button" + gender + "is checked");
+        assertThat(radioButtonsDemoPage.getCheckedGender()).as("Display message is:").isEqualTo("Radio button '" + gender + "' is checked");
+    }
+
+    @Step
+    public void user_clicks_the_sex_radio_button(String sex, String ageGroup) {
+        switch (sex) {
+            case "Male":
+                radioButtonsDemoPage.selectGenderRadioButtonsValue(0);
+                break;
+            case "Female":
+                radioButtonsDemoPage.selectGenderRadioButtonsValue(1);
+                break;
+        }
+
+        switch (ageGroup){
+            case "0 - 5":
+                radioButtonsDemoPage.selectAgeRadioButtonValue(0);
+                break;
+            case "5 - 15":
+                radioButtonsDemoPage.selectAgeRadioButtonValue(1);
+                break;
+            case "15 - 50":
+                radioButtonsDemoPage.selectAgeRadioButtonValue(2);
+                break;
+        }
+    }
+
+    @Step
+    public void user_clicks_on_get_values_button() {
+        radioButtonsDemoPage.clickGetValuesButton();
+    }
+
+    @Step
+    public void assert_both_values_are_correctly_shown(String sex, String ageGroup) {
+        assertThat(radioButtonsDemoPage.getSexAndAgeGroupText()).isEqualTo("Sex : " + sex + "\nAge group: " + ageGroup);
     }
 
 

@@ -29,19 +29,16 @@ public class RadioButtonsDemoPage extends PageObject {
     @FindBy(css = "button[onclick='getValues();']")
     private WebElementFacade getValuesButton;
 
-    @FindBy(css = ".groupradiobutton")
+    @FindBy(xpath = "//*[@id=\"easycont\"]/div/div[2]/div[2]/div[2]/p[2]")
     private WebElementFacade valueRadioButtonsMessage;
+
 
     public void navigateToRadioButtonsPage() {
         getDriver().navigate().to("https://demo.seleniumeasy.com/basic-radiobutton-demo.html");
     }
 
-    public void clickMaleRadioButton() {
-        radioButtons.get(0).click();
-    }
-
-    public void clickFemaleRadioButton() {
-        radioButtons.get(1).click();
+    public void selectSexRadioButton(int index) {
+        radioButtons.get(index).click();
     }
 
     public void clickGetCheckedValue() {
@@ -52,4 +49,21 @@ public class RadioButtonsDemoPage extends PageObject {
         return genderMessage.getText();
 
     }
+
+    public void selectGenderRadioButtonsValue(int index) {
+        genderRadioButtons.get(index).click();
+    }
+
+    public void selectAgeRadioButtonValue(int index) {
+        ageRadioButtons.get(index).click();
+    }
+
+    public void clickGetValuesButton() {
+        getValuesButton.click();
+    }
+
+    public String getSexAndAgeGroupText() {
+        return valueRadioButtonsMessage.getText();
+    }
+
 }
