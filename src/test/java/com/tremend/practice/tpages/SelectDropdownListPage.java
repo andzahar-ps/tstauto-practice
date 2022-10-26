@@ -1,17 +1,16 @@
 package com.tremend.practice.tpages;
 
-import io.cucumber.java.an.E;
+import com.tremend.practice.util.constants.framework.SessionVars;
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 public class SelectDropdownListPage extends PageObject {
 
@@ -44,7 +43,7 @@ public class SelectDropdownListPage extends PageObject {
     private WebElementFacade getAllSelectedButton;
 
     @FindBy(className = "getall-selected")
-    private WebElementFacade assertMessage;
+    private WebElementFacade countriesDisplayMessage;
 
 
 
@@ -105,34 +104,23 @@ public class SelectDropdownListPage extends PageObject {
     // ================ MULTI SELECT LIST DEMO SCENARIOS
 
 
-    // First Scenario Methods
-
-    int firstRandomNumber;
-    int secondRandomNumber;
-    int thirdRandomNumber;
-
+    public int getCountryListSize(){
+        return multiSelectOptions.size();
+    }
 
     public void clickMultipleOptions() {
 
-        List<Integer> indexesList = new ArrayList<Integer>();
-        indexesList.add(0);
-        indexesList.add(1);
-        indexesList.add(2);
-        indexesList.add(3);
-        indexesList.add(4);
-        indexesList.add(5);
-        indexesList.add(6);
-        indexesList.add(7);
+        List<Integer> randIntegers = new Random().ints(0, getCountryListSize() ).distinct().limit(getCountryListSize() -1).boxed().collect(Collectors.toList());
 
-        Random random = new Random();
+        int firstRandomNumber = randIntegers.get(0);
+        int secondRandomNumber = randIntegers.get(1);
+        int thirdRandomNumber = randIntegers.get(2);
 
-        firstRandomNumber = random.nextInt(indexesList.size());
-        indexesList.remove(firstRandomNumber);
 
-        secondRandomNumber = random.nextInt(indexesList.size());
-        indexesList.remove(secondRandomNumber);
+        Serenity.setSessionVariable(SessionVars.DROP_DOWN_FIRST_RANDOM_NUMBER).to(firstRandomNumber);
+        Serenity.setSessionVariable(SessionVars.DROP_DOWN_SECOND_RANDOM_NUMBER).to(secondRandomNumber);
+        Serenity.setSessionVariable(SessionVars.DROP_DOWN_THIRD_RANDOM_NUMBER).to(thirdRandomNumber);
 
-        thirdRandomNumber = random.nextInt(indexesList.size());
 
         Actions actions = new Actions(getDriver());
         actions.keyDown(Keys.LEFT_CONTROL)
@@ -142,18 +130,19 @@ public class SelectDropdownListPage extends PageObject {
                 .keyUp(Keys.LEFT_CONTROL)
                 .build()
                 .perform();
+        System.out.println(3);
     }
 
-    public String theStringValueOfTheFirstRandomNumber() {
-        return multiSelectOptions.get(firstRandomNumber).getValue();
+    public String getTextCountryOptionByIndex(int index) {
+        return multiSelectOptions.get(index).getValue();
     }
 
     public void clickFirstSelectedButton() {
         firstSelectedButton.click();
     }
 
-    public String getAssertMessage() {
-        return assertMessage.getText();
+    public String getTextDisplayedCountries() {
+        return countriesDisplayMessage.getText();
     }
 
 
@@ -164,16 +153,22 @@ public class SelectDropdownListPage extends PageObject {
         getAllSelectedButton.click();
     }
 
-    public String[] theStringValuesOfTheRandomNumbers() {
-        String[] theString = new String[3];
+//    public String[] theStringValuesOfTheRandomNumbers() {
+//        String[] theString = new String[3];
+//
+//        theString[0] = multiSelectOptions.get(firstRandomNumber).getValue();
+//        theString[1] = multiSelectOptions.get(secondRandomNumber).getValue();
+//        theString[2] = multiSelectOptions.get(thirdRandomNumber).getValue();
+//
+//        return theString;
+//
+//    }
 
-        theString[0] = multiSelectOptions.get(firstRandomNumber).getValue();
-        theString[1] = multiSelectOptions.get(secondRandomNumber).getValue();
-        theString[2] = multiSelectOptions.get(thirdRandomNumber).getValue();
 
-        return theString;
 
-    }
+    //////
+
+
 
 
 
