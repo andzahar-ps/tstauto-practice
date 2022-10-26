@@ -1,6 +1,7 @@
 package com.tremend.practice.keywords;
 
 import com.tremend.practice.steps.SelectDropdownListDemoSteps;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,9 +15,10 @@ public class SelectDropdownListDemoKeywords {
         selectDropdownListDemoSteps.navigate_to_dropdown_list_demo_page();
     }
 
-    @When("the user selects a day of the week from the dropdown")
-    public void theUserSelectsADayOfTheWeekFromTheDropdown(String day) {
-        selectDropdownListDemoSteps.the_user_clicks_on_dropdown_list(day);
+
+    @When("the user selects a {string} of the week from the dropdown")
+    public void theUserSelectsAOfTheWeekFromTheDropdown(String value) {
+        selectDropdownListDemoSteps.the_user_selects_option_from_dropdown_list(value);
     }
 
     @Then("a proper message with selected {string} value is displayed")

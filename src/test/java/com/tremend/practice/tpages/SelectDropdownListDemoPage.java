@@ -8,8 +8,8 @@ import java.util.List;
 
 public class SelectDropdownListDemoPage extends PageObject {
 
-    @FindBy(xpath = "//*[@id=\"select-demo\"]/option")
-    private List<WebElementFacade> dropDownList;
+    @FindBy(id = "select-demo")
+    private WebElementFacade selectField;
 
     @FindBy(className = "selected-value")
     private WebElementFacade daySelectedMessage;
@@ -18,8 +18,8 @@ public class SelectDropdownListDemoPage extends PageObject {
         getDriver().navigate().to("https://demo.seleniumeasy.com/basic-select-dropdown-demo.html");
     }
 
-    public void selectDropdownList( int index ) {
-        dropDownList.get(index).click();
+    public void selectDayDropdownValue( String value ) {
+        selectField.selectByValue(value);
     }
 
     public String getTextSuccessMessage() {
