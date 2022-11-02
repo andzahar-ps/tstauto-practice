@@ -107,9 +107,13 @@ public class SelectDropdownListPage extends PageObject {
 
     // First Scenario Methods
 
-    int firstRandomNumber;
-    int secondRandomNumber;
-    int thirdRandomNumber;
+    int indexOfFirstRandomNumber;
+    int indexOfSecondRandomNumber;
+    int indexOfThirdRandomNumber;
+
+    int valueOfFirstRandomIndexNumber;
+    int valueOfSecondRandomIndexNumber;
+    int valueOfThirdRandomIndexNumber;
 
 
     public void clickMultipleOptions() {
@@ -126,26 +130,38 @@ public class SelectDropdownListPage extends PageObject {
 
         Random random = new Random();
 
-        firstRandomNumber = random.nextInt(indexesList.size());
-        indexesList.remove(firstRandomNumber);
+        indexOfFirstRandomNumber = indexesList.get(random.nextInt(indexesList.size() - 1));
+        valueOfFirstRandomIndexNumber = indexesList.get(indexOfFirstRandomNumber);
+        System.out.println(indexOfFirstRandomNumber);
+        System.out.println(valueOfFirstRandomIndexNumber);
+        indexesList.remove(indexOfFirstRandomNumber);
 
-        secondRandomNumber = random.nextInt(indexesList.size());
-        indexesList.remove(secondRandomNumber);
+        indexOfSecondRandomNumber = indexesList.get(random.nextInt(indexesList.size() - 1));
+        valueOfSecondRandomIndexNumber = indexesList.get(indexOfSecondRandomNumber);
+        System.out.println(indexOfSecondRandomNumber);
+        System.out.println(valueOfSecondRandomIndexNumber);
+        indexesList.remove(indexOfSecondRandomNumber);
 
-        thirdRandomNumber = random.nextInt(indexesList.size());
+        indexOfThirdRandomNumber = indexesList.get(random.nextInt(indexesList.size() - 1));
+        valueOfThirdRandomIndexNumber = indexesList.get(indexOfThirdRandomNumber);
+        System.out.println(indexOfThirdRandomNumber);
+        System.out.println(valueOfThirdRandomIndexNumber);
+        indexesList.remove(indexOfThirdRandomNumber);
+
+        System.out.println(indexesList);
 
         Actions actions = new Actions(getDriver());
         actions.keyDown(Keys.LEFT_CONTROL)
-                .click(multiSelectOptions.get(firstRandomNumber))
-                .click(multiSelectOptions.get(secondRandomNumber))
-                .click(multiSelectOptions.get(thirdRandomNumber))
+                .click(multiSelectOptions.get(indexOfFirstRandomNumber))
+                .click(multiSelectOptions.get(indexOfSecondRandomNumber))
+                .click(multiSelectOptions.get(indexOfThirdRandomNumber))
                 .keyUp(Keys.LEFT_CONTROL)
                 .build()
                 .perform();
     }
 
     public String theStringValueOfTheFirstRandomNumber() {
-        return multiSelectOptions.get(firstRandomNumber).getValue();
+        return multiSelectOptions.get(indexOfFirstRandomNumber).getValue();
     }
 
     public void clickFirstSelectedButton() {
@@ -167,9 +183,10 @@ public class SelectDropdownListPage extends PageObject {
     public String[] theStringValuesOfTheRandomNumbers() {
         String[] theString = new String[3];
 
-        theString[0] = multiSelectOptions.get(firstRandomNumber).getValue();
-        theString[1] = multiSelectOptions.get(secondRandomNumber).getValue();
-        theString[2] = multiSelectOptions.get(thirdRandomNumber).getValue();
+        theString[0] = multiSelectOptions.get(indexOfFirstRandomNumber).getValue();
+        theString[1] = multiSelectOptions.get(indexOfSecondRandomNumber).getValue();
+        theString[2] = multiSelectOptions.get(indexOfThirdRandomNumber).getValue();
+
 
         return theString;
 
