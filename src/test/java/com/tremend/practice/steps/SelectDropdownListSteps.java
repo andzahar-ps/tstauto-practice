@@ -1,8 +1,10 @@
 package com.tremend.practice.steps;
 
 import com.tremend.practice.tpages.SelectDropdownListPage;
+import com.tremend.practice.util.constants.framework.SessionVars;
+import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
-import org.junit.Assert;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SelectDropdownListSteps {
@@ -75,7 +77,7 @@ public class SelectDropdownListSteps {
 
     @Step
     public void assert_first_option_selected_is_displayed_in_text_message() {
-        assertThat(selectDropdownListPage.getAssertMessage()).isEqualTo("First selected option is : " + selectDropdownListPage.theStringValueOfTheFirstRandomNumber());
+        assertThat(selectDropdownListPage.getTextDisplayedCountries()).isEqualTo("First selected option is : " + selectDropdownListPage.getTextCountryOptionByIndex(0));
     }
 
 
@@ -89,6 +91,10 @@ public class SelectDropdownListSteps {
 
     @Step
     public void assert_all_selected_options_are_displayed_in_text_message() {
-        assertThat(selectDropdownListPage.getAssertMessage()).isEqualTo("Options selected are : " + selectDropdownListPage.theStringValuesOfTheRandomNumbers()[0] + "," + selectDropdownListPage.theStringValuesOfTheRandomNumbers()[1] + "," + selectDropdownListPage.theStringValuesOfTheRandomNumbers()[2]);
+
+        assertThat(selectDropdownListPage.getTextDisplayedCountries()).isEqualTo("Options selected are : "
+                + selectDropdownListPage.getTextCountryOptionByIndex(Serenity.sessionVariableCalled( SessionVars.DROP_DOWN_FIRST_RANDOM_NUMBER) ) + ","
+                + selectDropdownListPage.getTextCountryOptionByIndex(Serenity.sessionVariableCalled( SessionVars.DROP_DOWN_SECOND_RANDOM_NUMBER) ) + ","
+                + selectDropdownListPage.getTextCountryOptionByIndex(Serenity.sessionVariableCalled( SessionVars.DROP_DOWN_THIRD_RANDOM_NUMBER) ));
     }
 }
