@@ -9,9 +9,10 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
 
 //        "com.epam.reportportal.cucumber.StepReporter" to add to plugins for reportPortal integration
-        plugin = {"pretty", "com.epam.reportportal.cucumber.StepReporter"},
+        plugin = {"pretty"},
         features = {"src/test/resources/features"},
-        glue = {"com.tremend.practice.keywords"}
+        glue = {"com.tremend.practice.keywords"},
+        tags = {"@test2"}
 
 )
 
