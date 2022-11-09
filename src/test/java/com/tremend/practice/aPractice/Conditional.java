@@ -4,7 +4,6 @@ import org.junit.Test;
 
 public class Conditional {
 
-
     @Test
     public void conditional01(){
 
@@ -19,7 +18,6 @@ public class Conditional {
             System.out.println("This text will not be printed");
         }
     }
-
 
     public void conditional02(String town){
 
@@ -37,6 +35,4 @@ public class Conditional {
         conditional02("Galati");
         conditional02("Brasov");
     }
-
-
 }
