@@ -9,7 +9,7 @@ Feature: Input Forms
 
 
     Examples:
-    |valueA    |valueB    |valueSum
-    |2         |4         |6
-    |-1        |-2        |-3
-    |a         |b         |NaN
+    |valueA    |valueB    |valueSum |
+    |2         |4         |6        |
+    |-1        |-2        |-3       |
+    |a         |b         |NaN      |
