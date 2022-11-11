@@ -8,6 +8,7 @@ Feature: Input Forms
     Then that text "<toni>" is displayed next to the Your Message section
     Examples:
       | toni |
+      | ceva |
 
 
   @test2

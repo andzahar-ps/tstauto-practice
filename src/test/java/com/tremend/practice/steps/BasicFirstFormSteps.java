@@ -13,14 +13,15 @@ public class BasicFirstFormSteps {
     public void navigate_to_basic_first_form_demo(){
         basicFirstFormPage.navigateToBasicFirstFormDemo();
     }
+
     @Step
     public void input_message(String message){
         basicFirstFormPage.enterMessageInputField(message);
     }
+
     @Step
-    public String display_your_message(String text){
-       assertThat(basicFirstFormPage.displayYourMessage()).as("message: ").isEqualTo(text);
-        return text;
+    public void display_your_message(String text){
+       assertThat(basicFirstFormPage.displayYourMessage()).as("Input Forms single aia message: ").isEqualTo(text);
     }
     @Step
     public void testing_normal_assert(String text){

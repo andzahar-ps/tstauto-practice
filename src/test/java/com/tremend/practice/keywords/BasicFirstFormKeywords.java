@@ -5,9 +5,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.thucydides.core.annotations.Steps;
 
 public class BasicFirstFormKeywords {
 
+    @Steps
     private BasicFirstFormSteps basicFirstFormSteps;
 
     @Given("that the user is on Basic First Form Page")

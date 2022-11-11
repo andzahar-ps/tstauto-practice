@@ -27,35 +27,35 @@ public class BasicFirstFormPage extends PageObject {
     @FindBy(id = "display")
     private WebElementFacade yourMessage;
 
-public void navigateToBasicFirstFormDemo(){
-    getDriver().navigate().to("https://demo.seleniumeasy.com/basic-first-form-demo.html");
-}
+    public void navigateToBasicFirstFormDemo(){
+        getDriver().navigate().to("https://demo.seleniumeasy.com/basic-first-form-demo.html");
+    }
 
-public void enterMessageInputField(String message){
-    inputField.sendKeys(message);
-}
+    public void enterMessageInputField(String message){
+        inputField.sendKeys(message);
+    }
 
-public void clickShowMessageButton(){
-    showMessageBtn.click();
-}
+    public void clickShowMessageButton(){
+        showMessageBtn.click();
+    }
 
-public String displayYourMessage(){
-    return yourMessage.getText();
-}
+    public String displayYourMessage(){
+        return yourMessage.getText();
+    }
 
-public void enterValueA(String number){
-    enterValueFieldA.sendKeys(number);
-}
-public void enterValueB(String number){
-    enterValueFieldB.sendKeys(number);
-}
-public void clickGetTotal(){
-    getTotalBtn.click();
-}
+    public void enterValueA(String number){
+        enterValueFieldA.sendKeys(number);
+    }
+    public void enterValueB(String number){
+        enterValueFieldB.sendKeys(number);
+    }
+    public void clickGetTotal(){
+        getTotalBtn.click();
+    }
 
-public String getTotalResult(){
-   return totalValueResult.getText();
-}
+    public String getTotalResult(){
+       return totalValueResult.getText();
+    }
 
 }
 
