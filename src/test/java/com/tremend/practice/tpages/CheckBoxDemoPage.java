@@ -5,6 +5,8 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
 public class CheckBoxDemoPage extends PageObject {
+
+    //Adding the web page elements that will be used in the following tests:
     @FindBy (id = "isAgeSelected")
     private WebElementFacade ageSelectionCheckBox;
 
@@ -30,6 +32,8 @@ public class CheckBoxDemoPage extends PageObject {
     private WebElementFacade uncheckAllHiddenButton;
 
 
+    // Creating methods for each web page element:
+
     public void navigateToCheckBoxDemoPage(){
         getDriver().navigate().to("https://demo.seleniumeasy.com/basic-checkbox-demo.html");
     }
@@ -44,11 +48,26 @@ public class CheckBoxDemoPage extends PageObject {
 
     public void clickFirstCheckBox(){firstCheckBox.click();}
 
+    public boolean isFirstCheckBoxSelected(){
+        return firstCheckBox.isSelected();
+    }
     public void clickSecondCheckBox(){secondCheckBox.click();}
+
+    public boolean isSecondCheckBoxSelected(){
+        return secondCheckBox.isSelected();
+    }
 
     public void clickThirdCheckbox(){thirdCheckBox.click();}
 
+    public boolean isThirdCheckBoxSelected(){
+        return thirdCheckBox.isSelected();
+    }
+
     public void clickFourthCheckBox(){fourthCheckBox.click();}
+
+    public boolean isFourthCheckBoxSelected(){
+        return fourthCheckBox.isSelected();
+    }
 
     public void clickCheckAllButton(){checkAllButton.click();}
 
