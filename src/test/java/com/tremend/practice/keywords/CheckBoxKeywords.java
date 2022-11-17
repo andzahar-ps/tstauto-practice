@@ -24,4 +24,14 @@ public class CheckBoxKeywords {
     public void theMessageIsDisplayed(String message) {
         checkBoxDemoSteps.user_checks_that_the_success_message_is_displayed(message);
     }
+
+    @When("the user check all the checkboxes")
+    public void theUserCheckAllTheCheckboxes() {
+        checkBoxDemoSteps.user_clicks_on_all_checkboxes();
+    }
+
+    @Then("the button display the message {string}")
+    public void theButtonDisplayTheMessage(String message) {
+        checkBoxDemoSteps.check_button_message(message);
+    }
 }
