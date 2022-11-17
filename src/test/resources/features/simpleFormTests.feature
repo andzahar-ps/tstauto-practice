@@ -17,15 +17,9 @@ Feature: Input Forms
     Examples:
       | valueA    |  valueB   | valueSum |
       | 1         | 2         | 3        |
-      | 2         | 3         | 5        |
       |-1         |-2         |-3        |
       | a         | b         | NaN      |
       | a         |          | NaN      |
-      |          | b         | NaN      |
       | 2         |          | NaN      |
-      | 10         | 2         | 12      |
       | 10         | 0         | 10      |
       | 10         | b         | NaN      |
-      | 10aa         | 11         | NaN      |
-      | 2         | -0         | NaN      |
-
