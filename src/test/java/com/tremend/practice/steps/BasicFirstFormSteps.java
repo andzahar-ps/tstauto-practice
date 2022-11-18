@@ -2,7 +2,6 @@ package com.tremend.practice.steps;
 
 import com.tremend.practice.tpages.BasicFirstFormPage;
 import net.thucydides.core.annotations.Step;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BasicFirstFormSteps {
@@ -21,12 +20,9 @@ public class BasicFirstFormSteps {
 
     @Step
     public void display_your_message(String text){
-       assertThat(basicFirstFormPage.displayYourMessage()).as("Input Forms single aia message: ").isEqualTo(text);
+       assertThat(basicFirstFormPage.displayYourMessage()).as("Your Message: ").isEqualTo(text);
     }
-    @Step
-    public void testing_normal_assert(String text){
-        assert (basicFirstFormPage.displayYourMessage().equals(text));
-    }
+
     @Step
     public void click_show_message_button(){
         basicFirstFormPage.clickShowMessageButton();

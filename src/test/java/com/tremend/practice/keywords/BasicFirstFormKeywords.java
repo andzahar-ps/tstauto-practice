@@ -25,7 +25,7 @@ public class BasicFirstFormKeywords {
 
     @Then("that text {string} is displayed next to the Your Message section")
     public void thatTextIsDisplayedNextToTheYourMessageSection(String message){
-        basicFirstFormSteps.testing_normal_assert(message);
+        basicFirstFormSteps.display_your_message(message);
     }
 
     @When("the user inputs numberA {string} in the field")
@@ -40,6 +40,7 @@ public class BasicFirstFormKeywords {
 
     @Then("the user clicks on Get Total button to see the result {string}")
     public void theUserClicksOnGetTotalButtonToSeeTheResult(String number){
+        basicFirstFormSteps.click_get_total();
         basicFirstFormSteps.get_total_result(number);
     }
 

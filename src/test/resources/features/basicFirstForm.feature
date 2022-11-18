@@ -18,4 +18,16 @@ Feature: Input Forms
     And the user inputs numberB "<numberB>" in the field
     Then the user clicks on Get Total button to see the result "<result>"
     Examples:
-      | numberA | | numberB | | result |
+    | numberA | | numberB | | result |
+    |1        | |2        | |3       |
+    |0        | |99       | |99      |
+    |a        | |f        | |NaN     |
+
+  @test3
+  Scenario Outline: Clicking on the checkbox will display a success message
+    Given that the user is on Basic Checkbox Demo Page
+    When the user clicks on the check box
+    Then the "<message>" success message will be displayed
+    Examples:
+    | message                        |
+    | Success - Check box is checked |
