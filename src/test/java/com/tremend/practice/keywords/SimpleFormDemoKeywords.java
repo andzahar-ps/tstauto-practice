@@ -23,7 +23,7 @@ public class SimpleFormDemoKeywords {
     @Given("that the user is on Simple form page")
     public void thatTheUserIsOnSimpleFormPage() {
         simpleFormDemoSteps.navigate_to_simple_form_page();
-        subscribeModalSteps.user_closes_the_subscribe_modal();
+      //  subscribeModalSteps.user_closes_the_subscribe_modal();
     }
 
 
