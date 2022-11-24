@@ -90,15 +90,12 @@ public class SelectDropdownListKeywords {
 
     // First Scenario Keywords
 
-
-
     @Given("the user is on the Select Dropdown List page demo")
     public void theUserIsOnTheSelectDropdownListPageDemo() {
         selectDropdownListSteps.navigate_to_select_dropdown_list();
     }
 
     @When("the user selects multiple options from the list")
-    @When("the user is selecting multiple options from the list")
     public void theUserSelectsMultipleOptionsFromTheList() {
         selectDropdownListSteps.the_user_selects_multiple_options();
     }
@@ -123,7 +120,10 @@ public class SelectDropdownListKeywords {
         selectDropdownListSteps.navigate_to_select_dropdown_list();
     }
 
-
+    @When("the user is selecting multiple options from the list")
+    public void theUserIsSelectingMultipleOptionsFromTheList() {
+        selectDropdownListSteps.the_user_selects_multiple_options();
+    }
 
     @And("the user is clicking the Get All Selected button")
     public void theUserIsClickingTheGetAllSelectedButton() {

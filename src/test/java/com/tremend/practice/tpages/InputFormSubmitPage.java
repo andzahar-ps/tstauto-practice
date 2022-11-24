@@ -56,7 +56,9 @@ public class InputFormSubmitPage extends PageObject {
     private WebElementFacade firstNameFieldErrorMessage;
 
     @FindBy(css = "#contact_form > fieldset > div:nth-child(2) > div > div > span")
-    private WebElementFacade firstNameFieldFrontalSpanIcon;
+    private WebElementFacade haiOdata;
+
+
 
 
 
@@ -94,10 +96,11 @@ public class InputFormSubmitPage extends PageObject {
 
 
 
+
     // ======== First Scenario Methods -> First Name Field
 
     public String getCSSValueFirstNameField() {
-        return firstNameFieldFrontalSpanIcon.getCssValue("border-color");
+        return haiOdata.getCssValue("border-color");
     }
 
     public void setFirstNameField(String input){
@@ -105,6 +108,22 @@ public class InputFormSubmitPage extends PageObject {
     }
 
 
+
+    // ======== Second Scenario
+
+    // ======== Third Scenario
+
+    // ======== Fourth Scenario
+
+    // ======== Fifth Scenario
+
+    // ======== Sixth Scenario
+
+    // ======== Seventh Scenario
+
+    // ======== Eighth Scenario
+
+    // ======== Ninth Scenario
 
 
 
