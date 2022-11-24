@@ -57,10 +57,7 @@ public class AjaxFormSubmitPage extends PageObject {
     }
 
     public void waitForAjaxMessageToDisappear() {
-//        waitForCondition().until(ExpectedConditions.visibilityOf(haiInRasaMatii));
         waitFor(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='Form submited Successfully!']")));
-//        waitForCondition().until(ExpectedConditions.invisibilityOf(ajaxMessage));
-
     }
 
     public String getTextSuccessfulMessage() {
