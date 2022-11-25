@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CheckboxDemoPage extends PageObject {
 
-    //Adding the web page elements that will be used in the following tests:
+    //Adding the webpage elements that will be used in the following tests:
     @FindBy (id = "isAgeSelected")
     private WebElementFacade ageSelectionCheckbox;
 
@@ -23,7 +23,7 @@ public class CheckboxDemoPage extends PageObject {
 
 
 
-    // Creating methods for each web page element:
+    // Creating methods for each webpage element:
 
     public void navigateToCheckboxDemoPage(){
         getDriver().navigate().to("https://demo.seleniumeasy.com/basic-checkbox-demo.html");
