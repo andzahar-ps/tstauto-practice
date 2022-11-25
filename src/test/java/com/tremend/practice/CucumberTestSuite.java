@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty"},
         features = {"src/test/resources/features"},
         glue = {"com.tremend.practice.keywords"},
-        tags = {"@multipleCheckBox"}
+        tags = {"@radioButton"}
 
 )
 
