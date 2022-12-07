@@ -45,6 +45,12 @@ public class AjaxFormSubmitKeywords {
 
     @Then("a successful message is displayed")
     public void aSuccessfulMessageIsDisplayed() {
+        ajaxFormSubmitSteps.wait_for_ajax_message_to_appear();
+        ajaxFormSubmitSteps.assert_successful_message_is_shown("Form submited Successfully!");
+    }
+
+    @Then("a successful message is displayed when the loading spinner disappears")
+    public void aSuccessfulMessageIsDisplayedWhenTheLoadingSpinnerDisappears() {
         ajaxFormSubmitSteps.wait_for_ajax_message_to_disappear();
         ajaxFormSubmitSteps.assert_successful_message_is_shown("Form submited Successfully!");
     }

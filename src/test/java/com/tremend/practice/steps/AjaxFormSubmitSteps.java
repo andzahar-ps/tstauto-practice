@@ -32,12 +32,18 @@ public class AjaxFormSubmitSteps {
     }
 
     @Step
-    public void wait_for_ajax_message_to_disappear() {
-        ajaxFormSubmitPage.waitForAjaxMessageToDisappear();
+    public void wait_for_ajax_message_to_appear() {
+        ajaxFormSubmitPage.waitForAjaxMessageToAppear();
     }
 
     @Step
     public void assert_successful_message_is_shown(String message) {
         assertThat(ajaxFormSubmitPage.getTextSuccessfulMessage()).as("The successful message").isEqualTo(message);
     }
+
+    @Step
+    public void wait_for_ajax_message_to_disappear() {
+        ajaxFormSubmitPage.waitForAjaxMessageToDisappear();
+    }
+
 }

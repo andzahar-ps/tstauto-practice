@@ -57,14 +57,14 @@ public class AjaxFormSubmitPage extends PageObject {
     }
 
     public void waitForAjaxMessageToDisappear() {
+        waitForCondition().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='submit-control' and text()='Ajax Request is Processing!']")));
+    }
+
+    public void waitForAjaxMessageToAppear() {
         waitFor(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='Form submited Successfully!']")));
     }
 
     public String getTextSuccessfulMessage() {
         return successfulMessage.getText();
     }
-
-
-
-
 }
