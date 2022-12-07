@@ -23,8 +23,8 @@ public class AjaxKeywords {
 
     @When("that the user enters valid data in the form")
     public void thatTheUserEntersValidDataInTheForm() {
-        ajaxSteps.user_sets_name_field();
-        ajaxSteps.user_sets_comment_field();
+        ajaxSteps.user_sets_name_field("island");
+        ajaxSteps.user_sets_comment_field("boy");
     }
 
     // ======== AND Keywords
@@ -38,8 +38,15 @@ public class AjaxKeywords {
 
     @Then("a success message is displayed under the form")
     public void aSuccessMessageIsDisplayedUnderTheForm() {
-        ajaxSteps.wait_for_success_message_to_appear();
+        ajaxSteps.wait_for_ajax_message_to_disappear();
         ajaxSteps.assert_success_message_is_displayed("Form submited Successfully!");
+    }
+
+    @Then("a success message appears under the form")
+    public void aSuccessMessageAppearsUnderTheForm() {
+        ajaxSteps.wait_for_ajax_spinner_to_disappear();
+        ajaxSteps.assert_success_message_is_displayed("Form submited Successfully!");
+
     }
 
 }

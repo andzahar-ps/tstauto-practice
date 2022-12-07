@@ -15,13 +15,13 @@ public class AjaxSteps {
     }
 
     @Step
-    public void user_sets_name_field() {
-        ajaxFormSubmitPage.setNameField("island");
+    public void user_sets_name_field(String name) {
+        ajaxFormSubmitPage.setNameField(name);
     }
 
     @Step
-    public void user_sets_comment_field(){
-        ajaxFormSubmitPage.setCommentField("boy");
+    public void user_sets_comment_field(String comment) {
+        ajaxFormSubmitPage.setCommentField(comment);
     }
 
     @Step
@@ -30,8 +30,13 @@ public class AjaxSteps {
     }
 
     @Step
-    public void wait_for_success_message_to_appear() {
+    public void wait_for_ajax_message_to_disappear() {
         ajaxFormSubmitPage.waitForAjaxMessageToDisappear();
+    }
+
+    @Step
+    public void wait_for_ajax_spinner_to_disappear() {
+        ajaxFormSubmitPage.waitForAjaxSpinnerToDisappear();
     }
 
     @Step
