@@ -32,18 +32,28 @@ public class RadioButtonsDemoSteps {
 
     @Step
     public void assert_radio_button_message(String value){
-        assertThat(radioButtonsDemoPage.getRadioButtonMessage() ).as("Radio button message is: ").isEqualTo(value);
+        assertThat(radioButtonsDemoPage.getRadioButtonMessage() ).as("Radio button message is: ").isEqualTo("Radio button '" + value + "' is checked");
     }
 
-    //Group Radio Buttons Demo:
+    //Group Radio Buttons Demo steps:
     @Step
-    public void user_clicks_gender_radio_buttons_list(int index){
-        radioButtonsDemoPage.clickGenderRadioButtonsList(index);
+    public void user_clicks_gender_radio_buttons_list(String value){
+       if (value.equals("Male")){
+           radioButtonsDemoPage.clickGenderRadioButtonsList(0);
+       } else if (value.equals("Female")){
+           radioButtonsDemoPage.clickGenderRadioButtonsList(1);
+       } else Assert.fail("Argument is not valid");
     }
 
     @Step
-    public void user_clicks_age_group_radio_buttons_list(int index){
-        radioButtonsDemoPage.clickAgeGroupRadioButtonsList(index);
+    public void user_clicks_age_group_radio_buttons_list(String value){
+        if (value.equals("0 - 5")){
+            radioButtonsDemoPage.clickAgeGroupRadioButtonsList(0);
+        } else if (value.equals("5 - 15")){
+            radioButtonsDemoPage.clickAgeGroupRadioButtonsList(1);
+        } else if (value.equals("15 - 50")){
+            radioButtonsDemoPage.clickAgeGroupRadioButtonsList(2);
+        } else Assert.fail("Argument is not valid");
     }
     @Step
     public void user_clicks_get_values_button(){
@@ -51,8 +61,8 @@ public class RadioButtonsDemoSteps {
     }
 
     @Step
-    public void assert_group_radio_buttons_message(String value){
-        assertThat(radioButtonsDemoPage.getGroupRadioButtonsMessage() ).as("Group Radio Buttons message is: ").isEqualTo(value);
+    public void assert_group_radio_buttons_message(String value1, String value2){
+        assertThat(radioButtonsDemoPage.getGroupRadioButtonsMessage() ).as("Group Radio Buttons message is: ").isEqualTo("Sex : " + value1 + "\nAge group: " + value2);
     }
 
 }
