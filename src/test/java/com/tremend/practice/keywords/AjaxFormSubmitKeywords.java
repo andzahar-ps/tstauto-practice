@@ -35,6 +35,9 @@ public class AjaxFormSubmitKeywords {
 
     }
 
-
-
+    @Then("a success message is displayed under the form")
+    public void aSuccessMessageIsDisplayedUnderTheForm() {
+        ajaxFormSubmitSteps.wait_for_ajax_spinner_to_disappear();
+        ajaxFormSubmitSteps.assert_successful_message_is_displayed("Form submited Successfully!");
+    }
 }

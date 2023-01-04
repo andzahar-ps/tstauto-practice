@@ -6,3 +6,10 @@ Feature: Ajax Form Submit
     When the user enters data in both of the fields
     And the user clicks the Submit button
     Then a success message is displayed
+
+  @AjaxFormSubmit
+  Scenario: As a user I want to get a success message after the loadingSpinner disappears
+    Given that the user is on ajax form submit page
+    When the user enters data in both of the fields
+    And the user clicks the Submit button
+    Then a success message is displayed under the form

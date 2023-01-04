@@ -34,6 +34,11 @@ public class AjaxFormSubmitSteps {
     }
 
     @Step
+    public void wait_for_ajax_spinner_to_disappear() {
+        ajaxFormSubmitPage.waitForAjaxSpinnerToDisappear();
+    }
+
+    @Step
     public void assert_successful_message_is_displayed(String message) {
         assertThat(ajaxFormSubmitPage.getSuccessMessage()).as("The successful message").isEqualTo(message);
     }

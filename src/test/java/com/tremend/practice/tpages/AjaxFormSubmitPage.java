@@ -26,6 +26,9 @@ public class AjaxFormSubmitPage extends PageObject {
     @FindBy(xpath = "//div[@id='submit-control']")
     private WebElementFacade successMessage;
 
+    @FindBy(xpath = "//*[@id='frm']/div[@id='submit-control']/img")
+    private WebElementFacade loadingSpinner;
+
 
 
     public void navigateToAjaxFormSubmitPage() {
@@ -47,6 +50,10 @@ public class AjaxFormSubmitPage extends PageObject {
     public void waitForAjaxMessageToDisappear() {
         waitFor(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='submit-control' and text()='Ajax Request is Processing!']")));
 
+    }
+
+    public void waitForAjaxSpinnerToDisappear() {
+        waitFor(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='frm']/div[@id='submit-control']/img")));
     }
 
     public String getSuccessMessage() {
