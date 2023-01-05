@@ -1,14 +1,29 @@
 package com.tremend.practice.steps;
 
 import com.tremend.practice.tpages.DropDownDemoPage;
-import com.tremend.practice.tpages.SubscribeModalPage;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class DropDownDemoSteps {
+    DropDownDemoPage dropDownPage;
 
-
-    DropDownDemoPage pageDemoPage;
-
+    @Step
+    public void user_navigates_to_dropdown_page(){
+        dropDownPage.navigateToDropdownPage();
     }
+
+    @Step
+    public void user_selects_value(String value){
+        dropDownPage.clickDropDownForm(value);
+    }
+
+    @Step
+    public void message_is_displayed(String value){
+        assertThat(dropDownPage.messageDisplayedText()).as("Display message is").contains(value);
+    }
+
+}
 
 

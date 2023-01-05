@@ -4,23 +4,28 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 public class DropDownDemoPage extends PageObject {
 
-    @FindBy(css = "#select-demo")
-    private WebElementFacade dropDownForm;
+//    @FindBy(css = "#select-demo")
+//    private Select dropDownForm;
 
-    @FindBy(xpath = "(//p[@class='selected-value'])[1]")
-    private WebElementFacade messageDisplayed;
+    @FindBy(css = ".selected-value")
+    private WebElementFacade message;
 
-    public void clickDropDownForm() {
-        //cum selectez exact un element din lista ?
-        dropDownForm.click();
+    public void navigateToDropdownPage(){
+        getDriver().navigate().to("https://demo.seleniumeasy.com/basic-select-dropdown-demo.html");
+    }
+
+    public void clickDropDownForm(String value) {
+        Select dropDownForm = new Select(getDriver().findElement(By.id("select-demo")));
+        dropDownForm.selectByVisibleText(value);
     }
 
     public String messageDisplayedText() {
-        return messageDisplayed.getTextContent();
+        return message.getTextContent();
     }
 
 
