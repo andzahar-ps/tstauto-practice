@@ -37,7 +37,7 @@ public class SelectDropdownListSteps {
     }
 
     @Step
-    public void assert_multi_select_list_message(String value){
-        assertThat(selectDropdownListPage.getMultiSelectListDemoMessage()).as("The Multi Select List message is: ").isEqualTo("First selected option is : " + value);
+    public void assert_multi_select_list_message(){
+        assertThat(selectDropdownListPage.getMultiSelectListDemoMessage()).as("The Multi Select List message is: ").isEqualTo("First selected option is : " + selectDropdownListPage.multiListSelectedValues());
     }
 }

@@ -19,13 +19,10 @@
 
 
     @simpleForm
-    Scenario Outline: As a user I want to be able to randomly select any values from the dropdown list and the validation message to return the chosen values
+    Scenario: As a user I want to be able to randomly select any values from the dropdown list and the validation message to return the chosen values
       Given that the user is on the Select Dropdown List webpage
       When the user selects multiple values from the Multi Select dropdown list
-      Then the message returned, displays the values "<city>" selected by the user
-
-      Examples:
-      |city     |
-      |California |
+      And the user clicks on the First selected button
+      Then the message returned, displays the values selected by the user
 
 

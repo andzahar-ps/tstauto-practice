@@ -6,8 +6,10 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.SourceType;
 
 import java.util.List;
+import java.util.Random;
 
 public class SelectDropdownListPage extends PageObject {
 
@@ -61,15 +63,28 @@ public class SelectDropdownListPage extends PageObject {
         return multiSelectListDemo.size();
     }
 
+    int intRandom;
+
     public void selectMultipleValues(){
-        int listIndex = multiSelectListDemo.size();
+
+        Random randomIndex = new Random();
+
+        int randomListIndex = getMultiSelectListSize();
+        //generate random values from 0 to the amount of elements that we have in our list
+        int intRandom = randomIndex.nextInt(randomListIndex);
+
+        //System.out.println(randomListIndex - 1);
 
         Actions actions = new Actions(getDriver());
         actions.keyDown(Keys.LEFT_CONTROL)
-                .click(multiSelectListDemo.get(0))
+                .click(multiSelectListDemo.get(intRandom))
                 .keyUp(Keys.LEFT_CONTROL)
                 .build()
                 .perform();
+    }
+
+    public String multiListSelectedValues(){
+        return multiSelectListDemo.get(intRandom).getValue();
     }
 
     public void clickFirstSelectedButton(){
