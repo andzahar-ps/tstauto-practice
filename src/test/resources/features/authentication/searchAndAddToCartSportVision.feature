@@ -10,7 +10,3 @@ Feature: Search and Add to cart functionalities
     When the user goes to the search results page of the desired brand
     And the user adds the desired product to the cart
     Then the user is able to see the cart icon value being changed
-
-
-
-

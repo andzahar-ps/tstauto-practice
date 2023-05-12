@@ -18,29 +18,6 @@ public class SearchAndAddToCartSportVisionSteps {
     }
 
 
-    // === Login Steps
-
-//    @Step
-//    public void the_user_clicks_on_login_button() {
-//        searchAndAddToCartSportVisionPage.clickOnLoginButton();
-//    }
-//
-//    @Step
-//    public void the_user_sets_value_username_field(String username) {
-//        searchAndAddToCartSportVisionPage.setValueUserNameField(username);
-//    }
-//
-//    @Step
-//    public void the_user_sets_value_password_field(String password) {
-//        searchAndAddToCartSportVisionPage.setValuePasswordField(password);
-//    }
-//
-//    @Step
-//    public void the_user_clicks_on_login_button_login_page() {
-//        searchAndAddToCartSportVisionPage.clickOnLoginButtonLoginPage();
-//    }
-
-
 
     // === Search and Add to Cart steps
 
@@ -73,5 +50,4 @@ public class SearchAndAddToCartSportVisionSteps {
     public void assert_the_cart_icon_displays_correct_value(String addedProductsNumber) {
         assertThat(searchAndAddToCartSportVisionPage.getValueOfAddedProducts()).as("The number of added products is: ").isEqualTo(addedProductsNumber);
     }
-
 }
